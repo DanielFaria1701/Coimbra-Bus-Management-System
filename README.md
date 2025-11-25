@@ -67,7 +67,7 @@ Below is the user interface diagram used to structure the application's navigati
 ---
 ## Technologies Used
 - **Python 3**
-- **SQL (SQLite or SQL Server adaptable)**
+- **SQL (PostgreSQL)**
 - **ONDA** — used for creating ER and physical diagrams  
 
 --- 
