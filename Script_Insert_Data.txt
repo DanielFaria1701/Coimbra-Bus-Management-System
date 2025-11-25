@@ -2,8 +2,8 @@
 
 
 /*========================ADMINISTRADOR======================*/
-INSERT INTO administrador (nome, email, password) VALUES ('Daniel', 'daniel.abreufaria02@gmail.com', '$5$rounds=535000$9GrxeS3tuYGd8Ddd$Co8SjFJ2EWj9V7efzL2OpC0idMdfXjdaoQJCKcZrlFA');
-INSERT INTO administrador (nome, email, password) VALUES ('Diana', 'diana.velosomacedo02@hotmail.com', '$5$rounds=535000$WHCeigg6v.z3fk2o$/aS7x78axqcv509aBZUxvlI3s8TnyGn/9pbXLWKBgTD');
+INSERT INTO administrador (nome, email, password) VALUES ('Daniel', 'daniel.faria@gmail.com', '$5$rounds=535000$9GrxeS3tuYGd8Ddd$Co8SjFJ2EWj9V7efzL2OpC0idMdfXjdaoQJCKcZrlFA');
+INSERT INTO administrador (nome, email, password) VALUES ('Filipe', 'filipe1873@hotmail.com', '$5$rounds=535000$WHCeigg6v.z3fk2o$/aS7x78axqcv509aBZUxvlI3s8TnyGn/9pbXLWKBgTD');
 
 /*========================AUTOCARRO==========================*/
 INSERT INTO autocarro (matricula,lotacao) VALUES ('AA-00-AA', 55);
@@ -45,3 +45,4 @@ INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_per
 INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('17h:00min', '10', 2, 2);
 INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('18h:30min', '10', 3, 2);
 INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('20h:00min', '10', 3, 2);
+
