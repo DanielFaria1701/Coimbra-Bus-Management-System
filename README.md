@@ -62,7 +62,7 @@ The project also includes:
 
 Below is the user interface diagram used to structure the application's navigation flow:
 
-![User Interface Diagram](./Interface_Diagram_1.png)
+![User Interface Diagram](./Interface_Diagram.png)
 
 ---
 ## Technologies Used
