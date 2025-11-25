@@ -65,6 +65,20 @@ Below is the user interface diagram used to structure the application's navigati
 ![User Interface Diagram](./Interface_Diagram.png)
 
 ---
+
+## Database and Table Files Included
+
+The repository includes two text files used to set up the database:
+
+### 1. `ScriptSQL_DBB_Data.txt` (example / pre-filled data)
+Contains sample data used to populate the database for testing the Coimbra Bus system.
+Note: some data may be outdated or deprecated and should be adjusted as needed.
+
+### 2. `ScriptSQL_ONDA_Tables.txt` (SQL schema & operations)
+Contains the SQL scripts required to create the tables, relationships, and base structure of the system.  
+These scripts must be executed before running the application.
+
+---
 ## Technologies Used
 - **Python 3**
 - **SQL (PostgreSQL)**
