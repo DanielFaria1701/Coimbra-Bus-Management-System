@@ -1,0 +1,101 @@
+CREATE TABLE cliente (
+	id_cliente	 BIGSERIAL,
+	nome		 VARCHAR(512) NOT NULL,
+	nif		 BIGINT NOT NULL,
+	telefone	 BIGINT NOT NULL,
+	email		 VARCHAR(512) NOT NULL,
+	password	 VARCHAR(512) NOT NULL,
+	gold		 BOOL NOT NULL DEFAULT False,
+	numero_viagens INTEGER NOT NULL DEFAULT 0,
+	PRIMARY KEY(id_cliente)
+);
+
+CREATE TABLE mensagem (
+	id_mensagem			 BIGSERIAL,
+	texto				 TEXT NOT NULL,
+	hora_vista			 TIMESTAMP,
+	cliente_id_cliente		 BIGINT NOT NULL,
+	administrador_id_administrador BIGINT NOT NULL,
+	PRIMARY KEY(id_mensagem)
+);
+
+CREATE TABLE administrador (
+	id_administrador BIGSERIAL,
+	nome		 VARCHAR(512) NOT NULL,
+	email		 VARCHAR(512) NOT NULL,
+	password	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(id_administrador)
+);
+
+CREATE TABLE percurso (
+	id_percurso BIGSERIAL,
+	distancia	 INTEGER NOT NULL,
+	origem	 VARCHAR(512) NOT NULL,
+	destino	 VARCHAR(512) NOT NULL,
+	duracao	 TEXT NOT NULL,
+	data	 DATE NOT NULL,
+	PRIMARY KEY(id_percurso)
+);
+
+CREATE TABLE preco (
+	id_atualizacao	 BIGSERIAL,
+	preco_antes	 INTEGER NOT NULL,
+	preco_depois	 INTEGER NOT NULL,
+	hora_atualizacao TIMESTAMP NOT NULL,
+	viagem_id_viagem BIGINT NOT NULL,
+	PRIMARY KEY(id_atualizacao)
+);
+
+CREATE TABLE autocarro (
+	id_autocarro BIGSERIAL,
+	matricula	 VARCHAR(512) NOT NULL,
+	lotacao	 INTEGER NOT NULL,
+	disponivel	 BOOL NOT NULL DEFAULT True,
+	PRIMARY KEY(id_autocarro)
+);
+
+CREATE TABLE bilhete (
+	id_bilhete	 BIGSERIAL,
+	hora_compra	 TIMESTAMP NOT NULL,
+	lista_espera	 BOOL NOT NULL,
+	lugar_escolhido	 INTEGER NOT NULL DEFAULT 0,
+	cliente_id_cliente BIGINT NOT NULL,
+	viagem_id_viagem	 BIGINT NOT NULL,
+	PRIMARY KEY(id_bilhete)
+);
+
+CREATE TABLE viagem (
+	id_viagem		 BIGSERIAL,
+	hora_partida		 TEXT NOT NULL,
+	preco			 INTEGER NOT NULL,
+	lugares_escolhidos	 VARCHAR(512) NOT NULL DEFAULT '->',
+	cheia			 BOOL NOT NULL DEFAULT False,
+	clientes_espera	 INTEGER NOT NULL DEFAULT 0,
+	lugares_ocupados	 INTEGER NOT NULL DEFAULT 0,
+	bilhetes_cancelados	 INTEGER NOT NULL DEFAULT 0,
+	autocarro_id_autocarro BIGINT NOT NULL,
+	percurso_id_percurso	 BIGINT NOT NULL,
+	PRIMARY KEY(id_viagem)
+);
+
+CREATE TABLE percurso_administrador (
+	percurso_id_percurso		 BIGINT,
+	administrador_id_administrador BIGINT,
+	PRIMARY KEY(percurso_id_percurso,administrador_id_administrador)
+);
+
+ALTER TABLE cliente ADD UNIQUE (nif, email);
+ALTER TABLE mensagem ADD CONSTRAINT mensagem_fk1 FOREIGN KEY (cliente_id_cliente) REFERENCES cliente(id_cliente);
+ALTER TABLE mensagem ADD CONSTRAINT mensagem_fk2 FOREIGN KEY (administrador_id_administrador) REFERENCES administrador(id_administrador);
+ALTER TABLE administrador ADD UNIQUE (email);
+ALTER TABLE preco ADD CONSTRAINT preco_fk1 FOREIGN KEY (viagem_id_viagem) REFERENCES viagem(id_viagem);
+ALTER TABLE autocarro ADD UNIQUE (matricula);
+ALTER TABLE autocarro ADD CONSTRAINT constraint_0 CHECK (upper(matricula) LIKE '%-%-%'
+);
+ALTER TABLE bilhete ADD CONSTRAINT bilhete_fk1 FOREIGN KEY (cliente_id_cliente) REFERENCES cliente(id_cliente);
+ALTER TABLE bilhete ADD CONSTRAINT bilhete_fk2 FOREIGN KEY (viagem_id_viagem) REFERENCES viagem(id_viagem);
+ALTER TABLE viagem ADD CONSTRAINT viagem_fk1 FOREIGN KEY (autocarro_id_autocarro) REFERENCES autocarro(id_autocarro);
+ALTER TABLE viagem ADD CONSTRAINT viagem_fk2 FOREIGN KEY (percurso_id_percurso) REFERENCES percurso(id_percurso);
+ALTER TABLE percurso_administrador ADD CONSTRAINT percurso_administrador_fk1 FOREIGN KEY (percurso_id_percurso) REFERENCES percurso(id_percurso);
+ALTER TABLE percurso_administrador ADD CONSTRAINT percurso_administrador_fk2 FOREIGN KEY (administrador_id_administrador) REFERENCES administrador(id_administrador);
+

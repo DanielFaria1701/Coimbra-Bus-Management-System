@@ -1,0 +1,47 @@
+/*========================CLIENTE============================*/
+
+
+/*========================ADMINISTRADOR======================*/
+INSERT INTO administrador (nome, email, password) VALUES ('Daniel', 'daniel.abreufaria02@gmail.com', '$5$rounds=535000$9GrxeS3tuYGd8Ddd$Co8SjFJ2EWj9V7efzL2OpC0idMdfXjdaoQJCKcZrlFA');
+INSERT INTO administrador (nome, email, password) VALUES ('Diana', 'diana.velosomacedo02@hotmail.com', '$5$rounds=535000$WHCeigg6v.z3fk2o$/aS7x78axqcv509aBZUxvlI3s8TnyGn/9pbXLWKBgTD');
+
+/*========================AUTOCARRO==========================*/
+INSERT INTO autocarro (matricula,lotacao) VALUES ('AA-00-AA', 55);
+INSERT INTO autocarro (matricula,lotacao) VALUES ('AA-00-AB', 55);
+INSERT INTO autocarro (matricula,lotacao) VALUES ('AA-00-AC', 55);
+INSERT INTO autocarro (matricula,lotacao) VALUES ('AA-00-AD', 55);
+
+/*========================MENSAGEM===========================*/
+
+/*========================Percurso===========================*/
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (115, 'Coimbra', 'Porto', '01h:25min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (160, 'Coimbra', 'Guimarães', '01h:50min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (210, 'Coimbra', 'Lisboa (Sete Rios)', '02h:20min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (205, 'Coimbra', 'Lisboa (Oriente)', '02h:20min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (230, 'Coimbra', 'Lisboa (Sintra)', '02h:45min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (170, 'Coimbra', 'Braga', '02h:40min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (86, 'Coimbra', 'Viseu', '01h:10min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (130, 'Coimbra', 'Santarém', '02h:00min', '2023-12-05');
+
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (115, 'Porto', 'Coimbra', '01h:25min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (160, 'Guimarães', 'Coimbra', '01h:50min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (210, 'Lisboa (Sete Rios)', 'Coimbra', '02h:20min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (205, 'Lisboa (Oriente)', 'Coimbra', '02h:20min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (230, 'Lisboa (Sintra)', 'Coimbra', '02h:45min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (170, 'Braga', 'Coimbra', '02h:40min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (86, 'Viseu', 'Coimbra', '01h:10min', '2023-12-05');
+INSERT INTO percurso (distancia, origem, destino, duracao, data) VALUES (130, 'Santarém', 'Coimbra', '02h:00min', '2023-12-05');
+
+/*========================VIAGEM===========================*/
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('10h:30min', '10', 1, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('13h:00min', '10', 1, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('15h:30min', '10', 1, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('17h:00min', '10', 1, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('18h:30min', '10', 2, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('20h:00min', '10', 3, 1);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('10h:30min', '10', 2, 2);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('13h:00min', '10', 2, 2);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('15h:30min', '10', 2, 2);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('17h:00min', '10', 2, 2);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('18h:30min', '10', 3, 2);
+INSERT INTO viagem (hora_partida, preco, autocarro_id_autocarro, percurso_id_percurso) VALUES ('20h:00min', '10', 3, 2);
